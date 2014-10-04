@@ -1,0 +1,335 @@
+AWSTATS DATA FILE 6.9 (build 1.925)
+# If you remove this file, all statistics for date 201311 will be lost/reset.
+
+# Position (offset in bytes) in this file of beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1864                
+POS_TIME 2539                
+POS_VISITOR 7275                
+POS_DAY 8588                
+POS_DOMAIN 3249                
+POS_LOGIN 3479                
+POS_ROBOT 3634                
+POS_WORMS 4249                
+POS_EMAILSENDER 4380                
+POS_EMAILRECEIVER 4523                
+POS_SESSION 8938                
+POS_SIDER 9112                
+POS_FILETYPES 4658                
+POS_OS 4851                
+POS_BROWSER 4957                
+POS_SCREENSIZE 5158                
+POS_UNKNOWNREFERER 5232                
+POS_UNKNOWNREFERERBROWSER 5579                
+POS_ORIGIN 5849                
+POS_SEREFERRALS 5985                
+POS_PAGEREFS 6142                
+POS_SEARCHWORDS 6383                
+POS_KEYWORDS 6535                
+POS_MISC 2203                
+POS_ERRORS 6594                
+POS_CLUSTER 3335                
+POS_SIDER_404 6694                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20131115031534 1490 272143 0
+FirstTime 20131101074530
+LastTime 20131114200917
+LastUpdate 20131115082004 1490 1355 135 0 0
+TotalVisits 42                  
+TotalUnique 31                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 31                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 1 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 2 2 4425186 12 15 1259890
+1 1 1 10047 7 10 190778
+2 0 0 0 4 6 82788
+3 1 1 9798 5 6 100837
+4 0 0 0 4 7 316999
+5 0 0 0 2 2 2670
+6 1 1 9798 7 10 151070
+7 14 53 1108467 137 177 2490201
+8 1 1 9798 4 6 147484
+9 0 0 0 7 11 1223645
+10 2 15 753140 6 9 1172519
+11 1 1 9798 8 9 9387524
+12 7 22 10115948 6 6 30112
+13 5 19 2990610 12 13 116289
+14 1 1 2052161 7 7 48338
+15 0 0 0 10 10 1484919
+16 2 2 1089702 10 12 125370
+17 0 0 0 11 12 1169690
+18 0 0 0 15 16 2099175
+19 3 18 854870 14 21 471449
+20 4 18 1886189 17 18 186284
+21 16 16 13588437 7 9 1244173
+22 0 0 0 3 6 163998
+23 0 0 0 9 15 252450
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 61 171 38913949
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 13
+spider 159 2487424 20131114204102 0
+yandex 28 1639571 20131114025356 0
+bot[+:,\.\;\/\\-] 17 3350872 20131115023947 0
+baiduspider 17 13540932 20131114161905 0
+robot 17 562172 20131115031534 0
+googlebot 11 288053 20131114100616 0
+[+:,\.\;\/\\-]bot 9 89684 20131113011704 0
+msnbot\-media 7 87212 20131110234544 0
+no_user_agent 3 1450462 20131110151517 0
+seznambot 3 30366 20131106203713 0
+surveybot 1 9798 20131107172655 0
+mj12bot 1 9798 20131105081753 0
+crawl 1 9798 20131107061651 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 8
+css 17 124440 0 0
+png 20 101970 0 0
+ttf 5 178544 0 0
+pdf 16 33562904 0 0
+html 40 376342 0 0
+js 36 1158060 0 0
+jpg 32 3366774 0 0
+gif 5 44915 0 0
+END_FILETYPES
+
+# OS ID - Hits
+BEGIN_OS 7
+winme 1
+macosx 46
+winxp 17
+winlong 1
+Unknown 3
+linux 11
+win2008 92
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 12
+msie8.0 1
+msie6.0 3
+firefox5.0 1
+mozilla 2
+chrome 68
+firefox22.0 1
+firefox14.0.1 9
+msie10.0 18
+firefox1.5.0.11 12
+firefox3.6.3 1
+msie9.0 52
+Unknown 3
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 3
+Mozilla/5.0_(compatible;_SiteExplorer/1.0b;__http://siteexplorer.info/) 20131114104956
+BlackBerry9000/4.6.0.167_Profile/MIDP-2.0_Configuration/CLDC-1.1_VendorID/102_ips-agent 20131107215306
+Mozilla/5.0_(compatible;_Google-Site-Verification/1.0) 20131102201737
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 2
+Dalvik/1.4.0_(Linux;_U;_Android_2.3.6;_X501_USA_Cricket_Build/GRK39F) 20131114001604
+BlackBerry9000/4.6.0.167_Profile/MIDP-2.0_Configuration/CLDC-1.1_VendorID/102_ips-agent 20131107215306
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 21 21
+From1 0 0
+From2 14 53
+From3 2 2
+From4 24 95
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+google 14 53
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 2
+http://findanaturaldoctor.com/profile/ 1 1
+http://findanaturaldoctor.com/search-results/ 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 2
+406 2 526
+404 137 361984
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 8
+/administrator/index.php 2 -
+/fonts/cantarell-bold-webfont.eot 3 http://drqueforhealth.com/
+/fonts/cantarell-bold-webfont.woff 20 http://drqueforhealth.com/
+/th1s_1s_a_4o4.html 13 http://www.google.com/url
+/robots.txt 83 -
+/apple-touch-icon.png 1 -
+/admin.php 2 -
+/a 13 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 31
+69.58.178.56 10 10 99482 20131107215314
+107.6.137.74 5 20 422565 20131112075503
+162.17.186.17 4 32 1611328 20131114200917
+184.154.248.106 3 12 253539 20131114075221
+108.163.224.114 3 12 253539 20131106075204
+66.172.107.176 3 18 854870 20131106192736
+67.50.195.170 3 18 854870 20131107122439
+182.118.32.95 3 3 4565331 20131114140549
+182.118.28.115 2 2 7843720 20131114134535
+182.118.32.74 2 2 2175716 20131113211045
+198.23.132.2 1 1 1079904 20131101160210
+72.14.199.213 1 1 53 20131102201737
+23.238.176.50 1 1 10047 20131105011204
+182.118.32.43 1 1 6750308 20131113211329
+54.237.73.30 1 1 9798 20131113074709
+182.118.32.46 1 1 1079904 20131114120710
+76.164.224.42 1 1 9798 20131105062635
+85.25.110.104 1 1 9798 20131113110214
+219.72.225.251 1 1 9798 20131107161006
+176.9.233.141 1 1 9798 20131106031426
+182.118.28.63 1 1 2052161 20131113211150
+208.43.225.84 1 1 9798 20131114104956
+198.100.150.90 1 1 9798 20131109134300
+182.118.28.44 1 1 1079904 20131113210202
+69.175.59.186 2 8 169026 20131110074749
+192.241.141.221 1 1 9798 20131110083917
+46.105.59.74 1 1 0 20131104123640
+37.203.210.76 1 1 1079904 20131107202637
+70.89.139.194 1 14 743342 20131113103014
+182.118.32.57 1 1 1430866 20131113210307
+69.171.160.157 2 2 4425186 20131114001604
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 13
+20131101 2 5 1164417 2
+20131102 2 5 84566 2
+20131103 1 4 84513 1
+20131104 2 5 84513 2
+20131105 5 22 909454 4
+20131106 5 23 949181 3
+20131107 16 34 2128567 5
+20131108 1 4 84513 1
+20131109 2 5 94311 2
+20131110 2 5 94311 2
+20131112 1 4 84513 1
+20131113 10 26 14336406 9
+20131114 12 29 18814684 8
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 4
+1h+ 1
+5mn-15mn 1
+30s-2mn 1
+0s-30s 39
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 17
+/ 28 264546 26 22
+/fonts/cantarell-bold-webfont.ttf 5 178544 1 3
+/forms/health-insurance.pdf 4 4319616 4 4
+/dr-que.html 3 31011 0 2
+/forms/authorization-for-release.pdf 2 2861732 2 1
+/forms/medical-history.pdf 2 2186824 2 1
+/therapies.html 2 20094 1 1
+/forms/all-forms.pdf 2 13500616 2 2
+/new-patients.html 2 21868 1 0
+/forms/review-of-systems.pdf 2 4104322 1 2
+/announcements.html 1 8702 0 1
+/googlecbe9d1c0a931d848.html 1 53 1 1
+/resources.html 1 10075 0 0
+/directions.html 1 9634 0 0
+/lightbox-herbs.html 1 10359 0 0
+/forms/registration.pdf 2 2164608 0 1
+/forms/pyroluria-questionnaire.pdf 2 4425186 1 1
+END_SIDER

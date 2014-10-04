@@ -1,0 +1,284 @@
+AWSTATS DATA FILE 6.9 (build 1.925)
+# If you remove this file, all statistics for date 201308 will be lost/reset.
+
+# Position (offset in bytes) in this file of beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1864                
+POS_TIME 2544                
+POS_VISITOR 6696                
+POS_DAY 7082                
+POS_DOMAIN 3138                
+POS_LOGIN 3367                
+POS_ROBOT 3564                
+POS_WORMS 3956                
+POS_EMAILSENDER 4087                
+POS_EMAILRECEIVER 4230                
+POS_SESSION 7251                
+POS_SIDER 7407                
+POS_FILETYPES 4365                
+POS_OS 4551                
+POS_BROWSER 4631                
+POS_SCREENSIZE 4745                
+POS_UNKNOWNREFERER 4819                
+POS_UNKNOWNREFERERBROWSER 4906                
+POS_ORIGIN 4988                
+POS_SEREFERRALS 5122                
+POS_PAGEREFS 5278                
+POS_SEARCHWORDS 5515                
+POS_KEYWORDS 5667                
+POS_MISC 2208                
+POS_ERRORS 5726                
+POS_CLUSTER 3223                
+POS_SIDER_404 5851                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20130901052052 247 44268 32953125648
+FirstTime 20130827223432
+LastTime 20130831075429
+LastUpdate 20130901214434 247 153 93 0 0
+TotalVisits 10                  
+TotalUnique 7                   
+MonthHostsKnown 0                   
+MonthHostsUnknown 8                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 0 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 2 2 11792
+1 0 0 0 0 0 0
+2 2 2 5358567 1 1 9429
+3 0 0 0 1 1 9253
+4 0 0 0 0 0 0
+5 0 0 0 2 2 5078
+6 0 0 0 1 1 2539
+7 3 13 329225 33 43 555151
+8 1 4 83930 14 18 205550
+9 0 0 0 3 4 1087521
+10 0 0 0 4 4 1445957
+11 0 0 0 0 0 0
+12 3 19 860898 8 8 27026
+13 0 0 0 1 4 66206
+14 0 0 0 0 0 0
+15 0 0 0 0 0 0
+16 26 40 1030220 1 1 2539
+17 0 0 0 0 0 0
+18 0 0 0 0 0 0
+19 0 0 0 37 45 288530
+20 0 0 0 1 1 9626
+21 0 0 0 3 3 7617
+22 1 2 4115 4 4 10843
+23 3 5 6846000 12 12 6820810
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 39 85 14512955
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+drqueforhealthcom 1 2 4115 20130827223433
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 7
+spider 44 697396 20130831075434 0
+java 18 269353 20130830191532 0
+baiduspider 7 56827 20130831201756 0
+bot[+:,\.\;\/\\-] 5 1117676 20130831093442 0
+googlebot 3 63667 20130830132256 0
+[+:,\.\;\/\\-]bot 2 18682 20130829080244 0
+yandex 2 1440119 20130830101405 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 8
+css 6 43692 0 0
+png 9 43501 0 0
+ttf 2 89272 0 0
+html 34 301315 0 0
+jpg 13 1392595 0 0
+pdf 3 12129494 0 0
+js 16 495120 0 0
+gif 2 17966 0 0
+END_FILETYPES
+
+# OS ID - Hits
+BEGIN_OS 4
+macosx 11
+winlong 16
+winxp 24
+win2008 34
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 6
+msie9.0 16
+chrome 26
+msie7.0 24
+firefox23.0 16
+opera 2
+safari 1
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 25 26
+From1 0 0
+From2 4 16
+From3 2 2
+From4 8 41
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+google 4 16
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 2
+http://www.wanp.org/index.php 1 1
+http://www.ipage.com/controlpanel/VisitorStats.bml 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 4
+302 22 4510
+206 4 6780180
+406 1 263
+404 46 116794
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 12
+/apple-touch-icon-precomposed.png 1 -
+/fonts/cantarell-bold-webfont.woff 12 http://www.drqueforhealth.com/resources.html
+/js_rotating/)self.html(selector 1 -
+/robots.txt 17 -
+/th1s_1s_a_4o4.html 4 http://www.google.com/url
+/apple-touch-icon.png 2 -
+/https://www.google.com/calendar/embed 1 -
+/js/,data:c,complete:function(a,b,c){c=a.responseText,a.isResolved()&&(a.done(function(a){c=a}),i.html(g 1 -
+/a 4 -
+/js/).html(this.album[this.currentImageIndex].title).fadeIn( 1 -
+/js/]},bh=U(c) 1 -
+/js/).html(this.options.labelImage%20+ 1 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 8
+69.84.207.246 24 24 225707 20130828165923
+71.212.90.214 5 10 6906500 20130828120747
+184.154.249.74 3 12 251790 20130831075429
+64.81.165.125 2 16 804513 20130828124121
+75.91.157.11 2 16 804513 20130828164020
+91.200.13.40 2 2 5358567 20130829024111
+108.163.224.114 1 4 83930 20130829080353
+91.128.195.107 0 1 77435 
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 5
+20130827 4 7 6850115 1
+20130828 30 63 1975048 5
+20130829 3 7 5519932 2
+20130830 1 4 83930 1
+20130831 1 4 83930 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 2
+0s-30s 9
+30mn-1h 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 12
+/ 10 92530 7 5
+/therapies.html 6 56574 0 0
+/new-patients.html 4 28305 1 1
+/resources.html 4 38504 0 1
+/directions.html 3 27522 0 0
+/announcements.html 2 16682 0 0
+/forms/all-forms.pdf 2 10698628 1 0
+/fonts/cantarell-bold-webfont.ttf 2 89272 0 2
+/lightbox-herbs.html 2 20026 0 0
+/dr-que.html 2 19770 0 0
+/stats/ 1 1402 1 0
+/forms/authorization-for-release.pdf 1 1430866 0 1
+END_SIDER

@@ -1,0 +1,16 @@
+[Dec-06-2013 20:04:23] session_start() [<a href='function.session-start'>function.session-start</a>]: open(/practice.dreamhosters.com/sessions/sess_NKc5zkoprGd0lnq21cgKE0, O_RDWR) failed: No such file or directory (2) in /home/thobon4/practice.dreamhosters.com/public_html/sprockets/inc_0700/common_inc.php on line 202
+[Dec-06-2013 20:04:23] Unknown: open(/practice.dreamhosters.com/sessions/sess_NKc5zkoprGd0lnq21cgKE0, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[Dec-06-2013 20:04:23] Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/practice.dreamhosters.com/sessions) in Unknown on line 0
+[Dec-06-2013 20:08:46] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/No-MySQL-hostname-was-specified' (2) in /home/thobon4/practice.dreamhosters.com/public_html/sprockets/inc_0700/conn_inc.php on line 108
+[Dec-06-2013 20:08:46] Can't connect to local MySQL server through socket '/No-MySQL-hostname-was-specified' (2) in /home/thobon4/practice.dreamhosters.com/public_html/sprockets/inc_0700/conn_inc.php on line 108
+[Dec-06-2013 20:08:53] mysqli_connect() [<a href='function.mysqli-connect'>function.mysqli-connect</a>]: (HY000/2002): Can't connect to local MySQL server through socket '/No-MySQL-hostname-was-specified' (2) in /home/thobon4/practice.dreamhosters.com/public_html/sprockets/inc_0700/conn_inc.php on line 139
+[Dec-06-2013 20:08:53] Can't connect to local MySQL server through socket '/No-MySQL-hostname-was-specified' (2) in /home/thobon4/practice.dreamhosters.com/public_html/sprockets/inc_0700/conn_inc.php on line 139
+[Dec-06-2013 21:38:29] Table 'waterlistview.test_Customers' doesn't exist in /home/thobon4/practice.dreamhosters.com/public_html/sprockets/demo/demo_shared.php on line 47
+[Dec-06-2013 22:09:25] Table 'waterlistview.test_Customers' doesn't exist in /home/thobon4/practice.dreamhosters.com/public_html/sprockets/demo/demo_mysql.php on line 50
+[Dec-06-2013 22:10:15] Undefined variable: MetaDescription in /home/thobon4/practice.dreamhosters.com/public_html/sprockets/demo/demo_view_pager.php on line 61
+[Dec-06-2013 22:10:15] Undefined variable: MetaKeywords in /home/thobon4/practice.dreamhosters.com/public_html/sprockets/demo/demo_view_pager.php on line 62
+[Dec-06-2013 22:15:23] Undefined variable: VulnScore in /home/thobon4/practice.dreamhosters.com/public_html/sprockets/demo/demo_view_pager.php on line 121
+[Dec-06-2013 22:26:42] Undefined variable: MetaDescription in /home/thobon4/practice.dreamhosters.com/public_html/sprockets/demo/demo_view_pager.php on line 61
+[Dec-06-2013 22:26:42] Undefined variable: MetaKeywords in /home/thobon4/practice.dreamhosters.com/public_html/sprockets/demo/demo_view_pager.php on line 62
+[Dec-06-2013 22:27:47] Undefined variable: MetaDescription in /home/thobon4/practice.dreamhosters.com/public_html/sprockets/demo/demo_view_pager.php on line 61
+[Dec-06-2013 22:27:47] Undefined variable: MetaKeywords in /home/thobon4/practice.dreamhosters.com/public_html/sprockets/demo/demo_view_pager.php on line 62

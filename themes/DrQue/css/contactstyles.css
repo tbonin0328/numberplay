@@ -1,0 +1,89 @@
+@charset "UTF-8";
+/* CSS Document */
+
+* {
+padding:0;
+margin:0;
+}
+
+body {
+font-family:helvetica, "MS Serif", "New York", serif;
+font-weight:200;
+font-size:0.95em;
+background:url(../images/seamlesstexture7_1200.jpg) repeat 0 50%;
+background-position:center;
+background-attachment:fixed;
+}
+
+@font-face {
+    font-family: 'cantarellbold';
+    src: url('../fonts/cantarell-bold-webfont.eot');
+    src: url('../fonts/cantarell-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cantarell-bold-webfont.woff') format('woff'),
+         url('../fonts/cantarell-bold-webfont.ttf') format('truetype'),
+         url('../fonts/cantarell-bold-webfont.svg#cantarellbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*=======DIVS========*/
+
+#contact2 {
+	padding:10px 40px 20px 40px;
+	display:block;
+	margin:0px auto 0px auto;
+	font-family:helvetica, "New York", serif;
+	font-weight:200;
+	font-size:0.95em;
+	background-color:white;
+}
+
+/*=========TYPOGRAPHY============*/
+
+p {
+line-height:1.45em;
+padding: 0px 0px 5px 0px;
+}
+
+p.validator {
+	float:right;
+	position:relative;
+	top:1px;
+	padding:0px 0px 0px 0px;
+	margin:-10px 0px -15px 0px;
+}
+
+fieldset {
+width:420px;
+border:1px #32a632 solid;
+padding:30px;
+}
+
+legend {
+font-family:'cantarellbold';
+font-size:1.5em;
+}
+
+input[type="text"], input[type="email"], input[type="tel"]  {
+width:98%;	
+margin:5px 0 10px 0;
+height:20px; /*can't do responsive design, aka percentages, with height*/
+}
+
+input[type="checkbox"], input[type="radio"] {
+margin-right:10px;	
+}
+
+input[type="submit"] {
+margin:0px;	
+}
+
+textarea {
+width:410px;
+height:30px;
+border:1px #32a632 solid;
+padding:5px;
+}
+
+
+ 

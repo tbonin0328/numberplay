@@ -1,0 +1,2 @@
+[Nov-18-2013 16:08:53] mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'tbonin01'@'localhost' (using password: YES) in /home/classes/tbonin01/public_html/sprockets/inc_0700/conn_inc.php on line 108
+[Nov-18-2013 16:08:53] Access denied for user 'tbonin01'@'localhost' (using password: YES) in /home/classes/tbonin01/public_html/sprockets/inc_0700/conn_inc.php on line 108

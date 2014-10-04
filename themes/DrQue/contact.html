@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Contact Form</title>
+
+<link href="css/contactstyles.css" type="text/css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+<form action="formhandler.php" method="post" name="contact" id="contact">
+
+<div id="contact2">
+
+<br>
+<fieldset>
+<legend>Contact Us!</legend>
+
+<label>NAME</label><br>
+<input type="text" name="name" id="name"><br>
+
+<label>EMAIL</label><br>
+<input type="email" name="email" id="email"><br>
+
+<label>PHONE</label><br>
+<input type="tel" name="phone" id="phone" placeholder="(XXX) XXX-XXXX"><br>
+
+<br>
+
+<p>For whom are you seeking help? (please check all that apply)</p>
+
+<br>
+<input type="checkbox" name="patient[]" id="patient" value="myself">Myself<br>
+
+<br>
+<input type="checkbox" name="patient[]" id="child" value="child">My child/grandchild<br>
+
+<br>
+<input type="checkbox" name="patient[]" id="mother" value="mother">My mother/father<br>
+<br>
+
+<input type="checkbox" name="patient[]" id="other" value="other">Other relative/non-relative<br>
+<br>
+<p>Please briefly describe the condition requiring treatment:</p>
+
+<br>
+<textarea name="formhandler[message]" id="message"></textarea>
+<br>
+<br>
+
+<p>Thank you for choosing our clinic to assist you in your journey to better health. Should you have a direct question or comment, you can also contact Dr. Areste's office by phone at 206.328.2926 or by email at <a href="mailto:drquesoffice@speakeasy.net">drquesoffice@speakeasy.net</a></p>
+<br>
+<input type="submit" name="submit" id="submit" value="Submit">
+
+<p class="validator">
+    <a href="http://www.w3.org/html/logo/"><img
+      src="images/html5_logo2.png" alt="Valid HTML 5" height="50" width="50" /></a>
+  </p>
+</fieldset>
+</div>
+</form>
+
+
+</body>
+</html>

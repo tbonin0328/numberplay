@@ -1,0 +1,24 @@
+/* feedback.css file must exist in root of theme to be active - do not move to a sub folder! */
+.feedback {  /* default style for div */
+	border: 1px solid #000;
+	margin:auto;
+	width:100%;
+	text-align:center;
+	font-weight: bold;
+}
+
+.error {
+  color: #000;
+  background-color: #7F462C; /* error color */
+}
+
+.warning {
+  color: #000;
+  /* background-color: #FFF380;  warning color */
+  background-color: #FBB917;
+}
+
+.notice {
+  color: #000;
+  background-color: #4C787E; /* notice color */
+}
