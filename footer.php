@@ -1,5 +1,6 @@
 </div>
 
+<!-- 
 <div id="sidebar">
 <h3>Menu Navigation</h3>
 <ul>
@@ -25,6 +26,7 @@
 </ul>
 
 </div>
+ -->
 
 <div style="clear: both;"> </div>
 

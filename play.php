@@ -17,6 +17,18 @@ Enter your birth name (as it appears on your birth certificate) and your birth d
 
 <p>
 <?php
+
+$alphas = range('A', 'Z');
+$hebChalNums = array(1,2,3,4,5,8,3,5,1,1,2,3,4,5,7,8,1,2,3,4,6,6,6,5,1,7);
+
+echo '<pre>';
+print_r($alphas);
+echo '</pre>';
+
+echo '<pre>';
+print_r($hebChalNums);
+echo '</pre>';
+
 if(isset($_POST['FirstName'])) //_POST is a superglobal
 //always want to use _POST on forms
 {
@@ -27,18 +39,6 @@ if(isset($_POST['FirstName'])) //_POST is a superglobal
 	$arrFirst = str_split($strFirst);
 	$arrMiddle = str_split($strMiddle);
 	$arrLast = str_split($strLast);
-	
-	echo '<pre>';
-	print_r($arrFirst);
-	echo '</pre>';	
-	
-	echo '<pre>';
-	print_r($arrMiddle);
-	echo '</pre>';
-	
-	echo '<pre>';
-	print_r($arrLast);
-	echo '</pre>';
 	
 echo '<table cellpadding="7" cellspacing="0"> <tr> <td>';	
 //table for first name starts here	
@@ -74,7 +74,45 @@ echo '<table cellpadding="7" cellspacing="0"> <tr> <td>';
 
     echo '</table></td></table>';
 	
+	echo '</br />';
+	
+	echo '<table cellpadding="7" cellspacing="0"> <tr> <td>';	
+//table for first name starts here	
+	echo '<table border="1" cellpadding="7" cellspacing="0" style="border-collapse:collapse;">';
+	echo "<tr>";
 
+	foreach ($arrFirst as $letter)
+	{
+	    $numIndex = array_search($letter, $alphas); 
+	    
+	    echo '<td align="center">' . $hebChalNums[$numIndex] . '</td>';    
+	}
+
+    echo '</table> </td> <td>';
+
+//table for middle name starts here	
+	echo '<table border="1" cellpadding="7" cellspacing="0" style="border-collapse:collapse;">';
+	echo "<tr>";
+
+	foreach ($arrMiddle as $letter)
+	{
+	    echo '<td align="center">' . $letter . '</td>';    
+	}
+
+    echo '</table></td><td>';
+	
+//table for last name starts here	
+	echo '<table border="1" cellpadding="7" cellspacing="0" style="border-collapse:collapse;">';
+	echo "<tr>";
+
+	foreach ($arrLast as $letter)
+	{
+	    echo '<td align="center">' . $letter . '</td>';    
+	}
+
+    echo '</table></td></table>';
+	
+	
 	echo '</br />';
 	echo '</br />';
 	
@@ -100,10 +138,6 @@ Birth Date: <input type="date" name="BirthDate" /> <br /> <!--this last thing is
 <?php 
 }
 ?>
-</p>
-
-<p>
-Proin at sapien arcu. Integer ut fermentum erat. Suspendisse potenti. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam odio quam, bibendum vitae lacinia ut, sodales ut turpis. Nullam dignissim urna vel risus condimentum in posuere nunc fermentum. 
 </p>
 
 <?php include 'footer.php'; ?>
