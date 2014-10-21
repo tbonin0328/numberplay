@@ -9,12 +9,6 @@ define('THIS_PAGE',basename($_SERVER['PHP_SELF'])); //this is the environment va
 
 <div id="content">
 
-<h2>Time to Play with Numbers!</h2>
-
-<p>
-Enter your birth name (as it appears on your birth certificate) and your birth date. Then, click "Go!" to get your personal numbers analysis!
-</p>
-
 <?php
 
 //$alphas = array(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z);
@@ -24,6 +18,7 @@ $hebChalCons = array(2,3,4,8,3,5,1,2,3,4,5,8,1,2,3,4,6,6,5,7);
 $hebChalVowels = array(1,5,1,7,6);
 $consonants = array('B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Z');
 $vowels = array('A', 'E', 'I', 'O', 'U');
+$numbers = array(1,2,3,4,5,6,7,8,9);
 
 $arrFirst = array();
 $arrMiddle = array();
@@ -56,6 +51,14 @@ if(isset($_POST['FirstName'])) //_POST is a superglobal
 	$yearRoot = getRootOnly($year);
 	$lifeLesson = ($month + $day + $yearRoot);
 	$lifeLessonRoot = getRoot($lifeLesson);
+	
+	$currentMonth = date('n');
+	$currentDay = date('j');
+	$currentYear = date('Y');
+	
+	$personalYear = $month + $day + getRootOnly($currentYear);
+	$personalMonth = $personalYear + $month;
+	$personalDay = $personalYear + $currentMonth + $currentDay;
 		
 	$sum1 = sumNumArray($arrFirst, $hebChalNums, $alphas);
 	$sum2 = sumNumArray($arrMiddle, $hebChalNums, $alphas);
@@ -73,6 +76,10 @@ if(isset($_POST['FirstName'])) //_POST is a superglobal
 	$soul = $sum7 + $sum8 + $sum9;
 	
 	$power = $destiny + $lifeLesson;
+
+	echo '<h2>Numerology Report</h2>';
+	echo '<div class=intro>';
+	echo '<p>The following report is based on your name being ' . $_POST['FirstName'] . " " . $_POST['MiddleName'] . ' ' . $_POST['LastName'] . ', and your birth date being ' . $_POST['BirthDate'] . '.</p></div>';	
 	
 echo '<div id = "numbers1">';
 
@@ -162,7 +169,7 @@ echo '<table class="main"> <tr> <td>';
 	
 	echo '<table class="main"><tr> <td>';
 
-		makeDataTable($lifeLesson . $lifeLessonRoot, "inside5");
+		makeDataTable($lifeLesson . $lifeLessonRoot, "inside5a");
 		echo '<tr><td>';
 		
 		makeDataTable("", "inside4");
@@ -185,12 +192,12 @@ echo '<table class="main"> <tr> <td>';
 	
 	echo '<table class="main"><tr> <td>';
 
-		makeTitleTable("Vowel Occurrence Sums:", "inside2");
+		makeTitleTable("Number:", "inside2");
 		echo '<tr><td>';
 		
-		makeTitleTable("", "inside2");
+		makeTitleTable("Times Each Number Appears:", "inside4a");
 		echo '<tr><td>';
-		
+
 		makeTitleTable("Personal Year:", "inside2");
 		echo '<tr><td>';
 		
@@ -210,19 +217,19 @@ echo '<table class="main"> <tr> <td>';
 		makeOneToNine();
 		echo '<tr><td>';
 		
-		countOneToNine(makeNumArray($arrAll, $hebChalNums, $alphas));
+		countOneToNine(makeNumArray($arrAll, $hebChalNums, $alphas), $numbers);
 		echo '<tr><td>';
 		
-		makeTitleTable("Personal Year:", "inside3");
+		makeTitleTable($personalYear . getRoot($personalYear), "inside5b");
 		echo '<tr><td>';
 		
-		makeTitleTable("Personal Month:", "inside3");
+		makeTitleTable($personalMonth . getRoot($personalMonth), "inside5c");
 		echo '<tr><td>';
 		
-		makeTitleTable("Personal Day:", "inside3");
+		makeTitleTable($personalDay . getRoot($personalDay), "inside5c");
 		echo '<tr><td>';
 		
-		makeTitleTable("General Year:", "inside3");
+		makeTitleTable(getRootOnly($currentYear) . getRoot(getRootOnly($currentYear)), "inside5c");
  	
  	echo '</td></tr></table></div>
  	
@@ -246,21 +253,20 @@ echo '<table class="main"> <tr> <td>';
 	
 	echo '<div="calcsleft">';
 	
-	echo 'Your name is ' . $_POST['FirstName'] . " ";
-	echo $_POST['MiddleName'] . " ";
-	echo $_POST['LastName'] . ".";
 	?> 
 	
 	
 <?php
-	echo '<br />';
-	print_r(makeNumArray($arrAll, $hebChalNums, $alphas));
-	echo "You were born on " . $_POST['BirthDate'] . " ";
 	echo '<br /><a href="' . THIS_PAGE . '">Reset</a> </div>';
 }else {//show form; see closing bracket below form; that's how this works.
 
 ?>
 <form action="<?=THIS_PAGE?>" method="post"> <!--we use a short tag here, no spaces-->
+<h2>Time to Play with Numbers!</h2>
+
+<p>
+Enter your birth name (as it appears on your birth certificate) and your birth date. Then, click "Go!" to get your personal numbers analysis!
+</p>
 <table class = "form"> 
 	<tr> 
 		<td class = "first"> First Name: </td> <td class = "second"><input type="text" name="FirstName" /> </td></tr>
@@ -395,7 +401,7 @@ function getRoot($num){
 		return "";
 	}
 	else {
-	while ($num > 10 && $num != 11){
+	while ($num >= 10 && $num != 11){
 	$sum = array_sum(str_split($num));
 	$num = $sum;
 	}	
@@ -413,7 +419,7 @@ function getRootOnly($num){
 
 function makeOneToNine(){
 	
-	echo '<table class="inside">';
+	echo '<table class="insidenb">';
 	echo "<tr>";	
 	
 	for ($i = 1; $i < 10; $i++) {
@@ -442,16 +448,24 @@ function makeNumArray($arr1, $arr2, $arr3){
 	return $numArray;
 }
 
-function countOneToNine($arr){
+function countOneToNine($arr1, $arr2){
 	
 	echo '<table class="inside">';
 	echo "<tr>";	
+	$tmp = array_count_values($arr1);
+	asort($tmp);
 	
-	for ($i = 1; $i < 10; $i++) {
-	echo '<td>' . $tmp = array_count_values($arr);
-$cnt = $tmp[12]; . '</td>';
+	foreach ($arr2 as $number)//for number in array of numbers 1 through 8
+	{
+		if(in_array($number, $arr1))//if the number is in the array of all numbers
+		{
+			echo '<td>' . $tmp[$number]. '</td>';//print number of times it shows
+		}
+		else 
+		{
+			echo '<td>' . 0 . '</td>';//else print zero
+		}
 	}
-	
 	echo '</tr></table></td>';
 }
 ?>
