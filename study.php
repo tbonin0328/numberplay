@@ -77,7 +77,7 @@ if(isset($_POST['FirstName'])) //_POST is a superglobal
 	
 	$power = $destiny + $lifeLesson;
 
-	echo '<h2>Numerology Report</h2>';
+	echo '<h2>Comparison Report</h2>';
 	echo '<div class=intro>';
 	echo '<p>The following report is based on your name being ' . $_POST['FirstName'] . " " . $_POST['MiddleName'] . ' ' . $_POST['LastName'] . ', and your birth date being ' . $_POST['BirthDate'] . '.</p></div>';	
 	
@@ -262,24 +262,30 @@ echo '<table class="main"> <tr> <td>';
 
 ?>
 <form action="<?=THIS_PAGE?>" method="post"> <!--we use a short tag here, no spaces-->
-<h2>Time to Play with Numbers!</h2>
+<h2>Time to Study Numbers!</h2>
 
 <p>
-Enter your birth name (as it appears on your birth certificate) and your birth date. Then, click "Go!" to get your personal numbers analysis!
+This page allows you to test one numerology system (Hebrew-Chaldean) against another (Modern) to see if one yields more "interesting"
+or "accurate" results than the other!
+</p>
+<p>
+To "study" the difference, simply select any one of the numerological values featured in this site's numerological report, and run the 
+program to see how often that patterns occurs for Hebrew-Chaldean Numerology vs. Modern Numerology!
 </p>
 <table class = "form"> 
 	<tr> 
-		<td class = "first"> First Name: </td> <td class = "second"><input type="text" name="FirstName" /> </td></tr>
-	<tr>
-		<td class = "first"> Middle Name: </td> <td class = "second"><input type="text" name="MiddleName" /> </td></tr>
-	<tr>
-		<td class = "first"> Last Name: </td> <td class = "second"><input type="text" name="LastName" /> </td></tr>
-	<tr>
-		<td class = "first"> Birth Date: </td><td class = "second"><input type="text" name="BirthDate" /> </td></tr>
+		<td class = "first"> Pick a Value to Study: </td> <td class = "second">
+			 <select>
+  					<option value="lifelesson" name = "LifeLesson">Life Lesson</option>
+  					<option value="pathofdestiny" name = "PathOfDestiny">Path of Destiny</option>
+  					<option value="outerpersonality" name="OuterPersonality">Outer Personality</option>
+  					<option value="soul" name = "Soul">Soul</option>
+  					<option value="power" name = "Power">Power</option>
+			</select> 
+			</td></tr>
 	</table> <!--this last thing is the xhtml closer --> 
-	<p class="two">
-	<input type="submit" name="getreport" value="Get Report"/>
-	</p>
+<input type="submit" />
+
 </form>
 <?php 
 }

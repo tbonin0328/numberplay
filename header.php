@@ -17,9 +17,10 @@
 <div id="menu">
 <ul>
 <li><a href="#">ABOUT</a></li>
-<li><a href="#">LEARN</a></li>
+<li><a href="#">RESOURCES</a></li>
 <li><a href="play.php">PLAY</a></li>
-<li><a href="#">WORK</a></li>
+<li><a href="study.php">STUDY</a></li>
+<li><a href="load.php">LOAD</a></li>
 <li><a href="contactus.php">CONTACT</a></li>
 </ul>
 </div>

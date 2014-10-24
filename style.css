@@ -369,6 +369,15 @@ font-weight: 100;
 }
 
 #content p { padding: 0 0 5px 0; color: #232323;}
+
+#content p.two {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 220px;
+    margin-right: 0;
+}
+
 #content ul { padding: 0 20px 10px 30px; }
 
 #sidebar {

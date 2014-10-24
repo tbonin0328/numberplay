@@ -77,7 +77,7 @@ if(isset($_POST['FirstName'])) //_POST is a superglobal
 	
 	$power = $destiny + $lifeLesson;
 
-	echo '<h2>Numerology Report</h2>';
+	echo '<h2>Comparison Report</h2>';
 	echo '<div class=intro>';
 	echo '<p>The following report is based on your name being ' . $_POST['FirstName'] . " " . $_POST['MiddleName'] . ' ' . $_POST['LastName'] . ', and your birth date being ' . $_POST['BirthDate'] . '.</p></div>';	
 	
@@ -262,10 +262,13 @@ echo '<table class="main"> <tr> <td>';
 
 ?>
 <form action="<?=THIS_PAGE?>" method="post"> <!--we use a short tag here, no spaces-->
-<h2>Time to Play with Numbers!</h2>
+<h2>Time to Study Numbers!</h2>
 
 <p>
-Enter your birth name (as it appears on your birth certificate) and your birth date. Then, click "Go!" to get your personal numbers analysis!
+This page allows you to load a name and birthdate into our research database. Just enter your the name and birthdate and hit "Load". 
+</p>
+<p>
+<b>Note:</b>If we can't verify that the name and birthdate are valid and that they are yours, the information will be deleted from the database.
 </p>
 <table class = "form"> 
 	<tr> 
@@ -278,7 +281,7 @@ Enter your birth name (as it appears on your birth certificate) and your birth d
 		<td class = "first"> Birth Date: </td><td class = "second"><input type="text" name="BirthDate" /> </td></tr>
 	</table> <!--this last thing is the xhtml closer --> 
 	<p class="two">
-	<input type="submit" name="getreport" value="Get Report"/>
+	<input type="submit" name="loadreport" value="Load"/>
 	</p>
 </form>
 <?php 
