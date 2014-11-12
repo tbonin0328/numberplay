@@ -1,16 +1,35 @@
-<?php include 'header.php'; 
+<?php 
+
+require 'inc_0700/config_inc.php'; #provides configuration, pathing, error handling, db credentials
+$config->titleTag = THIS_PAGE; #Fills <title> tag. If left empty will fallback to $config->titleTag in config_inc.php  
+$config->nav1 = $config->nav1; 
+/*
+$config->metaDescription = 'Web Database ITC281 class website.'; #Fills <meta> tags.
+$config->metaKeywords = 'SCCC,Seattle Central,ITC281,database,mysql,php';
+$config->metaRobots = 'no index, no follow';
+$config->loadhead = ''; #load page specific JS
+$config->banner = ''; #goes inside header
+$config->copyright = ''; #goes inside footer
+$config->sidebar1 = ''; #goes inside left side of page
+$config->sidebar2 = ''; #goes inside right side of page
+$config->nav1["page.php"] = "New Page!"; #add a new page to end of nav1 (viewable this page only)!!
+$config->nav1 = array("page.php"=>"New Page!") + $config->nav1; #add a new page to beginning of nav1 (viewable this page only)!!
+*/
+
+# END CONFIG AREA ---------------------------------------------------------- 
+
+
+get_header(); #defaults to theme header or header_inc.php
 // index.php 
 ?>
 
-<?php
-define('THIS_PAGE',basename($_SERVER['PHP_SELF'])); //this is the environment variable
-?>
 <div id="contentwrap"> 
 
 <div id="content">
 
 <?php
 
+require_once('methods.php');
 //$alphas = array(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z);
 $alphas = range('A', 'Z');
 $hebChalNums = array(1,2,3,4,5,8,3,5,1,1,2,3,4,5,7,8,1,2,3,4,6,6,6,5,1,7);
@@ -57,7 +76,7 @@ if(isset($_POST['FirstName'])) //_POST is a superglobal
 	$currentYear = date('Y');
 	
 	$personalYear = $month + $day + getRootOnly($currentYear);
-	$personalMonth = $personalYear + $month;
+	$personalMonth = $personalYear + $currentMonth;
 	$personalDay = $personalYear + $currentMonth + $currentDay;
 		
 	$sum1 = sumNumArray($arrFirst, $hebChalNums, $alphas);
@@ -251,13 +270,8 @@ echo '<table class="main"> <tr> <td>';
 		makeRowTable($soul . getRoot($soul), "inside3");
  	echo '</td></tr></table></div>';
 	
-	echo '<div="calcsleft">';
 	
-	?> 
-	
-	
-<?php
-	echo '<br /><a href="' . THIS_PAGE . '">Reset</a> </div>';
+	echo '<br /><a href="' . THIS_PAGE . '">Reset</a>';
 }else {//show form; see closing bracket below form; that's how this works.
 
 ?>
@@ -283,192 +297,6 @@ Enter your birth name (as it appears on your birth certificate) and your birth d
 </form>
 <?php 
 }
-
-function makeRowTable($rowtitle, $class){
-	echo '<table class=' . $class . '>';
-	echo '<tr><td>';
-	
-	echo $rowtitle;
-
-	echo '</td></tr></table></td></tr>';
-}
-
-function makeTitleTable($data, $class){
-	echo '<table class=' . $class . '>';
-	echo '<tr><td>';
-	
-	echo $data;
-
-	echo '</td></tr></table></td></tr>';
-}
-
-function makeDataTable($data, $class){
-	echo '<table class=' . $class . '>';
-	echo '<tr><td>';
-	
-	echo $data;
-
-	echo '</td></tr></table></td></tr>';
-}
-
-function makeNumTable($arr1, $arr2, $arr3) {
-		
-	echo '<table class="inside">';
-	echo "<tr>";
-	
-	foreach ($arr1 as $letter)
-	{
-		if (in_array($letter, $arr3)){
-			
-	    	$numIndex = array_search($letter, $arr3);
-			$numArray[] = $arr2[$numIndex];
-	    	echo '<td>' . $arr2[$numIndex] . '</td>';
-		}     
-		else {
-			echo '<td>' . "" . '</td>'; 
-		}	   
-	}
-	
-	echo '</table></td>';
-}
-
-function makeLetterTable($arr1){
-	
-	echo '<table class="inside">';
-	echo "<tr>";
-
-	foreach ($arr1 as $letter)
-	{
-	    echo '<td>' . $letter . '</td>';    
-	}
-
-   	echo '</table></td>';
-}
-
-function sumNumArray($arr1, $arr2, $arr3){
-	
-	$numArray = array();	
-	
-	foreach ($arr1 as $letter)
-	{
-		if (in_array($letter, $arr3))
-		{
-    	$numIndex = array_search($letter, $arr3);
-		$numArray[] = $arr2[$numIndex];
-		}
-		else {
-		$numArray[] = 0;
-		}     
-	}
-	
-	return array_sum($numArray);
-}
-
-function countElements($arr1, $arr2){
-	
-	$count = 0;
-	
-	foreach ($arr1 as $letter)
-	{
-		if (in_array($letter, $arr2))
-		{
-			$count++;
-		}
-		else {
-		
-		}     
-	}
-	
-	return $count;
-}
-
-function makeVowelTable($arr1, $arr2, $arr3){
-	
-	$numArray = array();	
-	
-	foreach ($arr1 as $letter)
-	{
-    	$numIndex = array_search($letter, $arr3);
-		$numArray[] = $arr2[$numIndex];     
-	}
-	
-	return array_sum($numArray);
-}
-
-function getRoot($num){
-
-	if ($num < 10 || $num == 11)
-	{
-		return "";
-	}
-	else {
-	while ($num >= 10 && $num != 11){
-	$sum = array_sum(str_split($num));
-	$num = $sum;
-	}	
-	return "/" . $sum;
-	}
-	return 11;
-}
-
-function getRootOnly($num){
-
- 	$sum = array_sum(str_split($num));
-	
-	return $sum;
-}
-
-function makeOneToNine(){
-	
-	echo '<table class="insidenb">';
-	echo "<tr>";	
-	
-	for ($i = 1; $i < 10; $i++) {
-	echo '<td>' . $i . '</td>';
-	}
-	
-	echo '</tr></table></td>';
-}
-
-function makeNumArray($arr1, $arr2, $arr3){
-	
-	$numArray = array();	
-	
-	foreach ($arr1 as $letter)
-	{
-		if (in_array($letter, $arr3))
-		{
-    	$numIndex = array_search($letter, $arr3);
-		$numArray[] = $arr2[$numIndex];
-		}
-		else {
-		$numArray[] = 0;
-		}     
-	}
-	
-	return $numArray;
-}
-
-function countOneToNine($arr1, $arr2){
-	
-	echo '<table class="inside">';
-	echo "<tr>";	
-	$tmp = array_count_values($arr1);
-	asort($tmp);
-	
-	foreach ($arr2 as $number)//for number in array of numbers 1 through 8
-	{
-		if(in_array($number, $arr1))//if the number is in the array of all numbers
-		{
-			echo '<td>' . $tmp[$number]. '</td>';//print number of times it shows
-		}
-		else 
-		{
-			echo '<td>' . 0 . '</td>';//else print zero
-		}
-	}
-	echo '</tr></table></td>';
-}
 ?>
 
-<?php include 'footer.php'; ?>
+<?php get_footer(); #defaults to theme header or footer_inc.php; ?>

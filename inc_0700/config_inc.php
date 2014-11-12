@@ -68,13 +68,13 @@ include INCLUDE_PATH . 'custom_inc.php'; # Provides spot for custom utility func
 # END INCLUDES (reference include files)---------------------------------------------------------------------
 
 # CONTENT CONFIGURATION AREA (theme, content areas & nav arrays for header/footer )-----------------------------------------
-$config->theme = 'html5up'; #default theme (header/footer combo) three included themes are 'TwoTone', 'SmallPark' and 'Noodles'
-$config->slogan = 'The Captain Goes Down with the Ship!';
-$config->metaDescription = 'Welcome to the Water Security website. We keep you informed about water issues in your city!';
-$config->metaKeywords = 'water,drought,water vulnerability,water issues,municipal water';
+$config->theme = 'NumberPlay'; #default theme (header/footer combo) three included themes are 'TwoTone', 'SmallPark' and 'Noodles'
+$config->slogan = 'Welcome to Number Play!';
+$config->metaDescription = 'Whoever knows the mystery of vibrations indeed knows all things. -- Hazrat Inayat Khan';
+$config->metaKeywords = 'numbers,numerology,hebrew,chaldean,path of destiny,soul vibration,life lesson number';
 $config->metaRobots = 'no index, no follow';
-$config->banner = 'We are Water'; #goes inside header - can be overwritten
-$config->copyright = 'WaterLove, &copy; 2012 - ' . date('Y'); #goes inside footer - can be overwritten
+$config->banner = 'This is NumberPlay!'; #goes inside header - can be overwritten
+$config->copyright = 'NumberPlay, &copy; 2013 - ' . date('Y'); #goes inside footer - can be overwritten
 
 $config->sidebar1 = '
 <h3 align="center">Sidebar 1</h3>
@@ -93,10 +93,12 @@ change it on a page by page basis by altering config settings inside individual 
 ';
 // DECLARING ARRAY IN ADVANCE SHOULD BE UNNECESSARY - TRIP HAZARD!!$nav1 = array(); #nav1 is the main navigation - tilde separator below splits text of link from title attribute
 if(startSession() && isset($_SESSION['AdminID'])){$nav1[$config->adminDashboard] = "ADMIN~Go to Administrative Page";}#admin page added to link only if logged in
-$nav1['index.php'] = "Home~A model for building largely static web pages";
-$nav1['water_list_pager.php'] = "List/View~My list/page for water rankings";
-$nav1['water_list_curvy.php'] = "Curvy List/View~The curvy version of my list view page.";
-$nav1['demo/demo_contact.php'] = "Contact~A demo for building postback forms";
+$nav1['about.php'] = "ABOUT~Learn about the Creator of NumberPlay!";
+$nav1['play.php'] = "PLAY~Get your numerology report here!.";
+$nav1['load.php'] = "LOAD~Upload your own information into our database!";
+$nav1['study.php'] = "STUDY~Use our tool to see how many times a number appears in a chart.";
+$nav1['resources.php'] = "RESOURCES~Numerology resources to use for interpreting the report";
+$nav1['contactus.php'] = "CONTACT~Contact us here!";
 $config->nav1 = $nav1;  
 
 if(startSession() && isset($_SESSION['AdminID'])){$nav1[$config->adminDashboard] = "ADMIN~Go to Administrative Page";}#admin page added to link only if logged in

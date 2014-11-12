@@ -1,10 +1,37 @@
-<?php include 'header.php'; 
+<?php 
+
+require 'inc_0700/config_inc.php'; #provides configuration, pathing, error handling, db credentials
+$config->titleTag = THIS_PAGE; #Fills <title> tag. If left empty will fallback to $config->titleTag in config_inc.php  
+$config->nav1 = $config->nav1; 
+
+$sql = "select * from numerology_profiles";
+
+#Fills <title> tag. If left empty will default to $PageTitle in config_inc.php  
+$config->titleTag = 'Muffins made with love & PHP in Seattle';
+
+#Fills <meta> tags.  Currently we're adding to the existing meta tags in config_inc.php
+$config->metaDescription = 'Seattle Central\'s ITC280 Class Muffins are made with pure PHP! ' . $config->metaDescription;
+$config->metaKeywords = 'Muffins,PHP,Fun,Bran,Regular,Regular Expressions,'. $config->metaKeywords;
+/*
+$config->metaDescription = 'Web Database ITC281 class website.'; #Fills <meta> tags.
+$config->metaKeywords = 'SCCC,Seattle Central,ITC281,database,mysql,php';
+$config->metaRobots = 'no index, no follow';
+$config->loadhead = ''; #load page specific JS
+$config->banner = ''; #goes inside header
+$config->copyright = ''; #goes inside footer
+$config->sidebar1 = ''; #goes inside left side of page
+$config->sidebar2 = ''; #goes inside right side of page
+$config->nav1["page.php"] = "New Page!"; #add a new page to end of nav1 (viewable this page only)!!
+$config->nav1 = array("page.php"=>"New Page!") + $config->nav1; #add a new page to beginning of nav1 (viewable this page only)!!
+*/
+
+# END CONFIG AREA ---------------------------------------------------------- 
+
+
+get_header(); #defaults to theme header or header_inc.php
 // index.php 
 ?>
 
-<?php
-define('THIS_PAGE',basename($_SERVER['PHP_SELF'])); //this is the environment variable
-?>
 <div id="contentwrap"> 
 
 <div id="content">
@@ -76,183 +103,45 @@ if(isset($_POST['FirstName'])) //_POST is a superglobal
 	$soul = $sum7 + $sum8 + $sum9;
 	
 	$power = $destiny + $lifeLesson;
-
-	echo '<h2>Comparison Report</h2>';
+	
+	$selected_radio = $_POST['dbchange'];
+	
+	echo '<h2>Database Contents</h2>';
 	echo '<div class=intro>';
-	echo '<p>The following report is based on your name being ' . $_POST['FirstName'] . " " . $_POST['MiddleName'] . ' ' . $_POST['LastName'] . ', and your birth date being ' . $_POST['BirthDate'] . '.</p></div>';	
+	echo '<p>The following is a list of the names and birthdates in our database.</p></div>';	
 	
-echo '<div id = "numbers1">';
+	echo '<div>';
+	
+	if ($selected_radio == 'load'){
+	loadEntries($strFirst, $strMiddle, $strLast, $month, $day, $year);
+	}
+	if ($selected_radio == 'delete'){
+	deleteEntries($strFirst, $strMiddle, $strLast, $month, $day, $year);	
+	}
+	else{
+		echo 'Something went wrong. Sorry!';
+	}
+	# connection comes first in mysqli (improved) function
+	$result = mysqli_query(IDB::conn(),$sql) or die(trigger_error(mysqli_error(IDB::conn()), E_USER_ERROR));
 
-echo '<table class="main"> <tr> <td>';
+	if(mysqli_num_rows($result) > 0)
+	{//show results
+		while($row=mysqli_fetch_assoc($result))
+		{ //pull data from array
+		    echo '<table class="inside">';
+			echo "<tr><td>" . $row['FirstName'] . "</td>";
+			echo "<td>" . $row['MiddleName'] . "</td>";
+			echo "<td>" . $row['LastName'] . "</td>";
+			echo "<td>" . $row['BirthMonth'] . "</td>";
+			echo "<td>" . $row['BirthDay'] . "</td>";
+			echo "<td>" . $row['BirthYear'] . "</td></tr></table>";
+		}
+	}else{//no records
+    print '<div align="center">What! No names?  There must be a mistake!!</div>';
+	}
+	echo '</div>';
 	
-	makeRowTable("Name:", "inside2");
-   	echo '<tr><td>';
-	
-	makeRowTable("Numerology:", "inside2");
-   	echo '<tr><td>';
-	
-	makeRowTable("Consonants:", "inside2");
-   	echo '<tr><td>';
-   	
-	makeRowTable("Vowels:", "inside2");
-	echo '<tr><td>';
-	
-	makeRowTable("Life Lesson:", "inside2");
-	echo '<tr><td>';
-	
-	makeRowTable("Counts", "inside4");
-	echo '<tr><td>';
-	
-	makeRowTable("Letters:", "inside2");
-	echo '<tr><td>';
-	
-	makeRowTable("Consonants:", "inside2");
-	echo '<tr><td>';
-	
-	makeRowTable("Vowels:", "inside2");
-	echo '<tr><td>';
-	
-	makeRowTable("Power Number:", "inside2");
- 	echo '</td></tr></table></div>';
-
-echo '<div id="numbers2">';	
-
-//table for first, middle and last names start here	
-echo '<table class="main"> <tr> <td>';	
-
-	makeLetterTable($arrFirst);
-   	echo '<td>';
-
-	makeLetterTable($arrMiddle);
-   	echo '<td>';
-	
-	makeLetterTable($arrLast);
-    echo '</tr></table>';
-	
-//assigned numbers tables start here
-	echo '<table class="main"><tr> <td>';
-	
-	makeNumTable($arrFirst, $hebChalNums, $alphas);
-	echo '<td>';
-	
-	makeNumTable($arrMiddle, $hebChalNums, $alphas);
-	echo '<td>';
-	
-	makeNumTable($arrLast, $hebChalNums, $alphas);
-	echo '</tr></table>';
-
-//make consonants table
-	echo '<table class="main"><tr> <td>';
-	
-	makeNumTable($arrFirst, $hebChalCons, $consonants);
-	echo '<td>';
-	
-	makeNumTable($arrMiddle, $hebChalCons, $consonants);
-	echo '<td>';
-	
-	makeNumTable($arrLast, $hebChalCons, $consonants);
-	echo '</tr></table>';
-	
-//make vowels table
-	echo '<table class="main"><tr> <td>';
-	
-	makeNumTable($arrFirst, $hebChalVowels, $vowels);
-	echo '<td>';
-	
-	makeNumTable($arrMiddle, $hebChalVowels, $vowels);
-	echo '<td>';
-	
-	makeNumTable($arrLast, $hebChalVowels, $vowels);
-	echo '</td></tr></table>';
-		
-	echo '<div id="datenumbers1">';	
-	
-	echo '<table class="main"><tr> <td>';
-
-		makeDataTable($lifeLesson . $lifeLessonRoot, "inside5a");
-		echo '<tr><td>';
-		
-		makeDataTable("", "inside4");
-		echo '<tr><td>';
-		
-		makeDataTable($numLetters . getRoot($numLetters), "inside5");
-		echo '<tr><td>';
-		
-		makeDataTable($numConsonants . getRoot($numConsonants), "inside5");
-		echo '<tr><td>';
-		
-		makeDataTable($numVowels . getRoot($numVowels), "inside5");
-		echo '<tr><td>';
-		
-		makeDataTable($power . getRoot($power), "inside5");
- 	
- 	echo '</td></tr></table></div>';
- 	
-	echo '<div id="datenumbers2">';	
-	
-	echo '<table class="main"><tr> <td>';
-
-		makeTitleTable("Number:", "inside2");
-		echo '<tr><td>';
-		
-		makeTitleTable("Times Each Number Appears:", "inside4a");
-		echo '<tr><td>';
-
-		makeTitleTable("Personal Year:", "inside2");
-		echo '<tr><td>';
-		
-		makeTitleTable("Personal Month:", "inside2");
-		echo '<tr><td>';
-		
-		makeTitleTable("Personal Day:", "inside2");
-		echo '<tr><td>';
-		
-		makeTitleTable("General Year:", "inside2");
- 	echo '</td></tr></table></div>';
- 	
- 	echo '<div id="datenumbers3">';	
-	
-	echo '<table class="main"><tr> <td>';
-
-		makeOneToNine();
-		echo '<tr><td>';
-		
-		countOneToNine(makeNumArray($arrAll, $hebChalNums, $alphas), $numbers);
-		echo '<tr><td>';
-		
-		makeTitleTable($personalYear . getRoot($personalYear), "inside5b");
-		echo '<tr><td>';
-		
-		makeTitleTable($personalMonth . getRoot($personalMonth), "inside5c");
-		echo '<tr><td>';
-		
-		makeTitleTable($personalDay . getRoot($personalDay), "inside5c");
-		echo '<tr><td>';
-		
-		makeTitleTable(getRootOnly($currentYear) . getRoot(getRootOnly($currentYear)), "inside5c");
- 	
- 	echo '</td></tr></table></div>
- 	
- 	</div>';	
-
-	echo '<div id="numbers3">';
-	
-	echo '<table class="main"> <tr> <td>';
-		
-		makeRowTable("Totals", "inside3");
-	   	echo '<tr><td>';
-		
-		makeRowTable($destiny . getRoot($destiny), "inside3");
-	   	echo '<tr><td>';
-		
-		makeRowTable($outer . getRoot($outer), "inside3");
-	   	echo '<tr><td>';
-	   	
-		makeRowTable($soul . getRoot($soul), "inside3");
- 	echo '</td></tr></table></div>';
-	
-	echo '<div="calcsleft">';
-	
+	@mysqli_free_result($result); # releases web server memory
 	?> 
 	
 	
@@ -262,13 +151,13 @@ echo '<table class="main"> <tr> <td>';
 
 ?>
 <form action="<?=THIS_PAGE?>" method="post"> <!--we use a short tag here, no spaces-->
-<h2>Time to Study Numbers!</h2>
+<h2>Load Your Name into Our Database!</h2>
 
 <p>
 This page allows you to load a name and birthdate into our research database. Just enter your the name and birthdate and hit "Load". 
 </p>
 <p>
-<b>Note:</b>If we can't verify that the name and birthdate are valid and that they are yours, the information will be deleted from the database.
+<b>Note:</b>If we can't verify that the name and birthdate are valid and that they are yours (or that the person in question approves), the information will be deleted from the database.
 </p>
 <table class = "form"> 
 	<tr> 
@@ -281,10 +170,83 @@ This page allows you to load a name and birthdate into our research database. Ju
 		<td class = "first"> Birth Date: </td><td class = "second"><input type="text" name="BirthDate" /> </td></tr>
 	</table> <!--this last thing is the xhtml closer --> 
 	<p class="two">
-	<input type="submit" name="loadreport" value="Load"/>
+		<input type="radio" name="dbchange" value="load" checked>Load Info
+		<br>
+		<input type="radio" name="dbchange" value="delete">Delete Info
+		<br>
+		<input type="submit" name="loadreport" value="Submit"/>
 	</p>
 </form>
 <?php 
+}
+	
+function loadEntries($first, $middle, $last, $month, $day, $year){
+	
+	$servername = "numberplay.practice.dreamhosters.com";#provide default DB credentials here
+	$username = "thobon4";
+	$password = "Lovely11!";
+	$dbname= "numberdb";
+	
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+	    die("Connection failed: " . $conn->connect_error);
+	}
+	
+	$sql = "INSERT INTO numerology_profiles VALUES (NULL, '$first', '$middle', '$last', '$month', '$day', '$year')";
+	
+	if ($conn->query($sql) === TRUE) {
+	    echo "New record created successfully <br />";
+	} else {
+	    echo "Error: " . $sql . "<br>" . $conn->error;
+	}
+	
+	$conn->close();
+}
+
+function deleteEntries($first, $middle, $last, $month, $day, $year){
+	
+	$servername = "numberplay.practice.dreamhosters.com";#provide default DB credentials here
+	$username = "thobon4";
+	$password = "Lovely11!";
+	$dbname= "numberdb";
+	
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+	    die("Connection failed: " . $conn->connect_error);
+	}
+		
+	$sql = "DELETE FROM numerology_profiles WHERE FirstName='$first' AND MiddleName='$middle' AND LastName='$last' AND BirthMonth='$month'"; 
+	
+	if ($conn->query($sql) === TRUE) {
+	    echo "Record deleted successfully <br />";
+	} else {
+	    echo "Error: " . $sql . "<br>" . $conn->error;
+	}
+	
+	$conn->close();
+}
+
+
+
+function showNameAndBirth($numtype, $num1, $num2){
+	echo "<tr><td>" . $numtype . ": </td>";
+	if ($num = $num2){
+		echo "<td>Yes</td></tr>";
+	}else {
+		echo "<td>No</td></tr>";
+	}
+}
+
+function makeValueTable(){
+	echo '<table class="inside">';
+	checkValue("Life Lesson", $selection, $lifelesson);
+	checkValue("Path of Destiny", $selection, $destiny);
+	checkValue("Outer Personality", $selection, $outer);
+	checkValue("Soul", $selection, $soul);
+	checkValue("Power", $selection, $power);
+	echo '</table>';
 }
 
 function makeRowTable($rowtitle, $class){
@@ -474,4 +436,4 @@ function countOneToNine($arr1, $arr2){
 }
 ?>
 
-<?php include 'footer.php'; ?>
+<?php get_footer(); #defaults to theme header or footer_inc.php; ?>

@@ -34,7 +34,7 @@ $privatekey = "6Le8U-kSAAAAAAQS3if6qLfw4Dt4HiOgUMn_L1hC";
 #EDIT THE FOLLOWING:
 $toAddress = "thomas.bonin@hotmail.com";  //place your/your client's email address here - EDISON/ZEPHIR WILL ONLY EMAIL seattlecentral.edu ADDRESSES!
 $toName = "Thomas Bonin"; //place your client's name here
-$website = "readysetgo.comlu.com/";  //place NAME of your client's website here
+$website = "practice.dreamhosters.com/public_html/numberplay/";  //place NAME of your client's website here
 $sendEmail = TRUE; //if true, will send an email, otherwise just show user data.
 //$header = 'header.php'; #UNCOMMENT & PLACE REFERENCE TO YOUR HEADER FILE HERE
 //$footer = 'footer.php'; #UNCOMMENT & PLACE REFERENCE TO YOUR FOOTER FILE HERE

@@ -16,10 +16,10 @@
  */
  
 	/*
-	$myHostName = "water.practice.dreamhosters.com";#provide default DB credentials here
+	$myHostName = "numberplay.practice.dreamhosters.com";#provide default DB credentials here
 	$myUserName = "thobon4";
 	$myPassword = "Lovely11!";
-	$myDatabase = "waterlistview";
+	$myDatabase = "numberdb";
 	*/ 
 	
 
@@ -69,10 +69,10 @@
  */ 
 function conn($access="",$improved = TRUE)
 {
-	$myHostName = "water.practice.dreamhosters.com";#provide default DB credentials here
+	$myHostName = "numberplay.practice.dreamhosters.com";#provide default DB credentials here
 	$myUserName = "thobon4";
 	$myPassword = "Lovely11!";
-	$myDatabase = "waterlistview";
+	$myDatabase = "numberdb";
 	
 	if($access != "")
 	{#only check access if overwritten in function
@@ -134,10 +134,10 @@ class IDB
 
 	private function __construct() 
 	{#establishes a mysqli connection - private constructor prevents direct instance creation 
-		$myHostName = "water.practice.dreamhosters.com";#provide default DB credentials here
+		$myHostName = "numberplay.practice.dreamhosters.com";#provide default DB credentials here
 		$myUserName = "thobon4";
 		$myPassword = "Lovely11!";
-		$myDatabase = "waterlistview";
+		$myDatabase = "numberdb";
 		#hostname, username, password, database
 		$this->dbHandle = mysqli_connect($myHostName,$myUserName, $myPassword, $myDatabase) or die(trigger_error(mysqli_connect_error(), E_USER_ERROR)); 
 	} 

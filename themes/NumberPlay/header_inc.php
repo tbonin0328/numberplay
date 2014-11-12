@@ -16,12 +16,10 @@
 
 <div id="menu">
 <ul>
-<li><a href="#">ABOUT</a></li>
-<li><a href="#">RESOURCES</a></li>
-<li><a href="play.php">PLAY</a></li>
-<li><a href="study.php">STUDY</a></li>
-<li><a href="load.php">LOAD</a></li>
-<li><a href="contactus.php">CONTACT</a></li>
+<?php 
+	echo makeLinks($config->nav1,'<li>','</li>'); #link arrays are created in config_inc.php file
+?>
+
 </ul>
 </div>
 
