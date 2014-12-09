@@ -122,10 +122,10 @@ if(isset($_POST['LifeLesson'])) //_POST is a superglobal
 	
 	
 <?php 
-require_once('test2.php');
-$obj = new MyClass;
+//require_once('test2.php');
+//$obj = new MyClass;
  
-var_dump($obj);
+//var_dump($obj);
 
 ?>
 </p>

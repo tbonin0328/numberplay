@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <link rel="stylesheet" type="text/css" href="style.css" />
 <title>NUMBE&#1071PLAY</title>
 </head>
@@ -11,7 +12,7 @@
 <div id="wrap">
 
 <div id="header">
-<h1><a href="#">NUMBE&#1071PLAY</a></h1>
+<h1><a href="index.php">NUMBE&#1071PLAY</a></h1>
 </div>
 
 <div id="menu">

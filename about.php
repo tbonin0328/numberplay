@@ -28,7 +28,7 @@ get_header(); #defaults to theme header or header_inc.php
 
 <h2>About the Creator of this Website</h2>
 
-<p>NumberPlay was designed by Thomas Bonin, an autodidactic numerologist (whatever that means). Influenced by a strong musical background and a love of patterns of all kind, Mr. Bonin has been exploring the connections between words and numbers and their associated vibrations and meanings since his early 20's (he's now 45). This site combines Mr. Bonin's love of numbers with his passions for web design and computer programming. Please feel to reach out to Mr. Bonin through the contact link above if you have questions you'd like to ask or would like a personalized interpretation of your numerological profile.
+<p>NumberPlay was designed by Thomas Bonin, an autodidactic numerologist (whatever that means). Influenced by a strong musical background and a love of patterns of all kinds, Mr. Bonin has been exploring the connections between words and numbers and their associated vibrations and meanings since his early 20's (he's now 45). This site combines Mr. Bonin's love of numbers with his passions for web design and computer programming. Please feel to reach out to Mr. Bonin through the contact link above if you have questions you'd like to ask or would like a personalized interpretation of your numerological profile.
 </p>
 </ br>
 </ br>
@@ -53,11 +53,11 @@ $config->benchNote = "Test From Index File!";
 	echo '<p class="two"><font size="7" color="red">' . $num . '</font></p>';
 	echo '<dl><dt><p class="two">The number ' . $num . ' signifies: </p>';
 	echo'<dd><p class="two">';
-	echo getNumInfo($num);
+	echo '<em>' . getNumInfo($num) . '</em>';
 	echo "</p></dl>"
 ?>
 <p>
-	Refresh this page to "draw" an new number and its meaning.
+	Refresh this page to "draw" a new number and its meaning.
 </p>
 
 <?php get_footer(); #defaults to theme header or footer_inc.php; ?>

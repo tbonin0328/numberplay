@@ -2,35 +2,86 @@
 
 class Profile
 {
-  public $alphas = range('A', 'Z');
-  public $hebChalNums = array(1,2,3,4,5,8,3,5,1,1,2,3,4,5,7,8,1,2,3,4,6,6,6,5,1,7);
-  public $hebChalCons = array(2,3,4,8,3,5,1,2,3,4,5,8,1,2,3,4,6,6,5,7);
-  public $hebChalVowels = array(1,5,1,7,6);
-  public $consonants = array('B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Z');
-  public $vowels = array('A', 'E', 'I', 'O', 'U');
-  public $numbers = array(1,2,3,4,5,6,7,8,9);
-  
-  private $_name;
-  private $_job;
-  private $_age;
-  
+	public $_firstname;
+	public $_middlename;
+	public $_lastname;
+	public $_birthdate;
+
+	public function __construct($firstname, $middlename, $lastname, $birthdate)
+  	{
+      $this->_firstname = $firstname;
+      $this->_middlename = $middlename;
+      $this->_lastname = $lastname;
+	  $this->_birthdate = $birthdate;
+	}
  
-  public function __construct($name, $job, $age)
-  {
-      $this->_name = $name;
-      $this->_job = $job;
-      $this->_age = $age;
-  }
+	public function __get($property) 
+	{
+		if (property_exists($this, $property)) 
+		{
+      		return $this->$property;
+    	}
+  	}
+
+	public function __set($property, $value) 
+	{
+    	if (property_exists($this, $property)) 
+    	{
+      		$this->$property = $value;
+    	}
+
+    	return $this;
+  	}
  
-  public function changeJob($newjob)
-  {
-      $this->_job = $newjob;
-  }
+	public function setFirstName($newval)
+    {
+      $this->_firstname = $newval;
+  	}
  
-  public function happyBirthday()
-  {
-      ++$this->_age;
-  }
+	public function getFirstName()
+	{
+		return $this->_firstname;
+	}
+ 
+ 	public function setMiddleName($newval)
+    {
+      $this->_middlename = $newval;
+  	}
+ 
+	public function getMiddleName()
+	{
+		return $this->_middlename;
+	}
+ 
+ 	public function setLastName($newval)
+    {
+      $this->_lastname = $newval;
+  	}
+ 
+	public function getLastName()
+	{
+		return $this->_lastname;
+	}
+ 
+  	public function setBirthDate($newval)
+    {
+      $this->_birthdate= $newval;
+  	}
+ 
+	public function getBirthDate()
+	{
+		return $this->_birthdate;
+	}
+ 
+   	public function changeJob($newjob)
+	{
+	      $this->_job = $newjob;
+	}
+	 
+	public function happyBirthday()
+	{
+	      ++$this->_age;
+	}
 }
 
 ?>

@@ -30,40 +30,22 @@ get_header(); #defaults to theme header or header_inc.php
 <?php
 
 require_once('methods.php');
-//$alphas = array(A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z);
-$alphas = range('A', 'Z');
-$hebChalNums = array(1,2,3,4,5,8,3,5,1,1,2,3,4,5,7,8,1,2,3,4,6,6,6,5,1,7);
-$hebChalCons = array(2,3,4,8,3,5,1,2,3,4,5,8,1,2,3,4,6,6,5,7);
-$hebChalVowels = array(1,5,1,7,6);
-$consonants = array('B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Z');
-$vowels = array('A', 'E', 'I', 'O', 'U');
-$numbers = array(1,2,3,4,5,6,7,8,9);
-
-$arrFirst = array();
-$arrMiddle = array();
-$arrLast = array();
+require_once('profile.php');
+require_once('values.php');
 
 $arrSums;
 
-if(isset($_POST['FirstName'])) //_POST is a superglobal
+$profile = makeProfile();
+if($profile != null) //_POST is a superglobal
 //always want to use _POST on forms
-{
-	$strFirst = strtoupper ($_POST['FirstName']);
-	$strMiddle = strtoupper ($_POST['MiddleName']);
-	$strLast = strtoupper ($_POST['LastName']);
+{	
+	$arrFirstMiddle = array_merge(makeFirstNameArray($profile), makeMiddleNameArray($profile));
+	$arrAll = makeAllArray($profile);
+	$numLetters = getNumLetters($arrAll, $alphas);
+	$numConsonants = getNumLetters($arrAll, $consonants);
+	$numVowels = getNumLetters($arrAll, $vowels);	
 	
-	$arrFirst = str_split($strFirst);
-	$arrMiddle = str_split($strMiddle);
-	$arrLast = str_split($strLast);
-	
-	$arrFirstMiddle = array_merge($arrFirst, $arrMiddle);
-	$arrAll = array_merge($arrFirstMiddle, $arrLast);
-	$numLetters = countElements($arrAll, $alphas);
-	$numConsonants = countElements($arrAll, $consonants);
-	$numVowels = countElements($arrAll, $vowels);
-	
-	$birthdate  = $_POST['BirthDate'];
-	$birthsplit = explode("/", $birthdate);
+	$birthsplit = explode("/", $profile->getBirthDate());
 	$month = intval($birthsplit[0]); // create birth month variable
 	$day = intval($birthsplit[1]); // create birth month variable
 	$year = intval($birthsplit[2]); // create birth month variable
@@ -71,35 +53,33 @@ if(isset($_POST['FirstName'])) //_POST is a superglobal
 	$lifeLesson = ($month + $day + $yearRoot);
 	$lifeLessonRoot = getRoot($lifeLesson);
 	
-	$currentMonth = date('n');
-	$currentDay = date('j');
-	$currentYear = date('Y');
+	// $currentMonth = date('n');
+	// $currentDay = date('j');
+	// $currentYear = date('Y');
 	
 	$personalYear = $month + $day + getRootOnly($currentYear);
 	$personalMonth = $personalYear + $currentMonth;
 	$personalDay = $personalYear + $currentMonth + $currentDay;
 		
-	$sum1 = sumNumArray($arrFirst, $hebChalNums, $alphas);
-	$sum2 = sumNumArray($arrMiddle, $hebChalNums, $alphas);
-	$sum3 = sumNumArray($arrLast, $hebChalNums, $alphas);
-	$destiny = $sum1 + $sum2 + $sum3;
-
-	$sum4 = sumNumArray($arrFirst, $hebChalCons, $consonants);
-	$sum5 = sumNumArray($arrMiddle, $hebChalCons, $consonants);
-	$sum6 = sumNumArray($arrLast, $hebChalCons, $consonants);
-	$outer = $sum4 + $sum5 + $sum6;
+	// $sum1 = sumNumArray(makeFirstNameArray($profile), $hebChalNums, $alphas);
+	// $sum2 = sumNumArray(makeMiddleNameArray($profile), $hebChalNums, $alphas);
+	// $sum3 = sumNumArray(makeLastNameArray($profile), $hebChalNums, $alphas);
+	// $destiny = $sum1 + $sum2 + $sum3;
 	
-	$sum7 = sumNumArray($arrFirst, $hebChalVowels, $vowels);
-	$sum8 = sumNumArray($arrMiddle, $hebChalVowels, $vowels);
-	$sum9 = sumNumArray($arrLast, $hebChalVowels, $vowels);
-	$soul = $sum7 + $sum8 + $sum9;
+	$destiny = getNumerologyValue($profile, $hebChalNums, $alphas);
+	$outer = getNumerologyValue($profile, $hebChalCons, $consonants);
+	$soul = getNumerologyValue($profile, $hebChalVowels, $vowels);
 	
 	$power = $destiny + $lifeLesson;
 
 	echo '<h2>Numerology Report</h2>';
 	echo '<div class=intro>';
-	echo '<p>The following report is based on your name being ' . $_POST['FirstName'] . " " . $_POST['MiddleName'] . ' ' . $_POST['LastName'] . ', and your birth date being ' . $_POST['BirthDate'] . '.</p></div>';	
 	
+	
+ 	//var_dump($profile);
+	
+	echo '<p>The following report is based on your name being ' . $profile->getFirstName() . ' '. $profile->getMiddleName() . ' ' . $profile->getLastName() . ', and your birth date being ' . $profile->getBirthDate() . '</p></div>';
+
 echo '<div id = "numbers1">';
 
 echo '<table class="main"> <tr> <td>';
@@ -139,49 +119,49 @@ echo '<div id="numbers2">';
 //table for first, middle and last names start here	
 echo '<table class="main"> <tr> <td>';	
 
-	makeLetterTable($arrFirst);
+	makeLetterTable(makeFirstNameArray($profile));
    	echo '<td>';
 
-	makeLetterTable($arrMiddle);
+	makeLetterTable(makeMiddleNameArray($profile));
    	echo '<td>';
 	
-	makeLetterTable($arrLast);
+	makeLetterTable(makeLastNameArray($profile));
     echo '</tr></table>';
 	
 //assigned numbers tables start here
 	echo '<table class="main"><tr> <td>';
 	
-	makeNumTable($arrFirst, $hebChalNums, $alphas);
+	makeNumTable(makeFirstNameArray($profile), $hebChalNums, $alphas);
 	echo '<td>';
 	
-	makeNumTable($arrMiddle, $hebChalNums, $alphas);
+	makeNumTable(makeMiddleNameArray($profile), $hebChalNums, $alphas);
 	echo '<td>';
 	
-	makeNumTable($arrLast, $hebChalNums, $alphas);
+	makeNumTable(makeLastNameArray($profile), $hebChalNums, $alphas);
 	echo '</tr></table>';
 
 //make consonants table
 	echo '<table class="main"><tr> <td>';
 	
-	makeNumTable($arrFirst, $hebChalCons, $consonants);
+	makeNumTable(makeFirstNameArray($profile), $hebChalCons, $consonants);
 	echo '<td>';
 	
-	makeNumTable($arrMiddle, $hebChalCons, $consonants);
+	makeNumTable(makeMiddleNameArray($profile), $hebChalCons, $consonants);
 	echo '<td>';
 	
-	makeNumTable($arrLast, $hebChalCons, $consonants);
+	makeNumTable(makeLastNameArray($profile), $hebChalCons, $consonants);
 	echo '</tr></table>';
 	
 //make vowels table
 	echo '<table class="main"><tr> <td>';
 	
-	makeNumTable($arrFirst, $hebChalVowels, $vowels);
+	makeNumTable(makeFirstNameArray($profile), $hebChalVowels, $vowels);
 	echo '<td>';
 	
-	makeNumTable($arrMiddle, $hebChalVowels, $vowels);
+	makeNumTable(makeMiddleNameArray($profile), $hebChalVowels, $vowels);
 	echo '<td>';
 	
-	makeNumTable($arrLast, $hebChalVowels, $vowels);
+	makeNumTable(makeLastNameArray($profile), $hebChalVowels, $vowels);
 	echo '</td></tr></table>';
 		
 	echo '<div id="datenumbers1">';	

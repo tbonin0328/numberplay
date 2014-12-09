@@ -20,8 +20,8 @@
 
 # For each customer/domain, get a key from http://www.google.com/recaptcha/whyrecaptcha (DON'T LET A CUSTOMER USE YOUR KEY) 
 
-$publickey = "6Le8U-kSAAAAAJHGWaFZRZT5KD6FZ6prsMyWIKUs";
-$privatekey = "6Le8U-kSAAAAAAQS3if6qLfw4Dt4HiOgUMn_L1hC";
+$publickey = "6LdFBP8SAAAAAF7zzi-D1Gd4vNHJn0OnBbO8Nivq";
+$privatekey = "6LdFBP8SAAAAAH-2bhszqxtQQ0IP_uaf2JlNT4G9";
 
 # edison ONLY reCAPTCHA keys are below:
 //$publickey = "6Lf8FMkSAAAAAIR0DTQO4f0zjP-hlyBVcVTjRNB-";
@@ -32,7 +32,7 @@ $privatekey = "6Le8U-kSAAAAAAQS3if6qLfw4Dt4HiOgUMn_L1hC";
 //$privatekey = "6Ld11wYAAAAAAEbf282RKWoikILiUBE7U1QJzfmO";
 
 #EDIT THE FOLLOWING:
-$toAddress = "thomas.bonin@hotmail.com";  //place your/your client's email address here - EDISON/ZEPHIR WILL ONLY EMAIL seattlecentral.edu ADDRESSES!
+$toAddress = "thomas.e.bonin@gmail.com";  //place your/your client's email address here - EDISON/ZEPHIR WILL ONLY EMAIL seattlecentral.edu ADDRESSES!
 $toName = "Thomas Bonin"; //place your client's name here
 $website = "practice.dreamhosters.com/public_html/numberplay/";  //place NAME of your client's website here
 $sendEmail = TRUE; //if true, will send an email, otherwise just show user data.
@@ -84,7 +84,7 @@ if (isset($_POST["recaptcha_response_field"]))
 ?>
         <!-- format HTML here to be your 'thank you' message -->
 		<div class="contact-feedback">
-			<h2>Your Comments Have Been Received!</h2>
+			<p><em><b>Your Comments Have Been Received!</b></em></p>
 	        <p>Thanks for the input!</p>
 	        <p>We'll respond via email within 24 hours, if you requested information.</p>
 	    </div>    
@@ -102,7 +102,7 @@ if(!isset($_POST["recaptcha_response_field"])|| $error != "")
 	?>
 	<!-- below change the HTML to accommodate your form elements - only 'Name' & 'Email' are significant -->
 	<div><span class="required">(*required)</span></div>
-	<table class="contact-table">
+	<table class="form2">
 		<tr><!-- the form elements 'Name' and 'Email' are sigificant to the app, any others can be added/deleted -->
 			<td>
 				<span class="required">*</span>Name:<br />
@@ -122,12 +122,20 @@ if(!isset($_POST["recaptcha_response_field"])|| $error != "")
 			</td>
 		</tr>
 		<tr><!-- reCAPTCHA icon appears here: -->
-			<td><?php echo recaptcha_get_html($publickey, $error); ?></td>
+			<td> <script type="text/javascript"
+   				src="https://www.google.com/recaptcha/api/challenge?k=6LdFBP8SAAAAAF7zzi-D1Gd4vNHJn0OnBbO8Nivq">
+ 			</script>
+ 			<noscript>
+   			<iframe src="https://www.google.com/recaptcha/api/noscript?k=6LdFBP8SAAAAAF7zzi-D1Gd4vNHJn0OnBbO8Nivq"
+       			height="300" width="500" frameborder="0"></iframe><br>
+ 			</noscript></td>
+			
 		</tr>
 		<tr>
 			<td><input type="submit" value="submit" /></td>
 		</tr>
     </table>
+    
     </form>
 <?php
 }

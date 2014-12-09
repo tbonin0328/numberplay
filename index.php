@@ -26,9 +26,9 @@ get_header(); #defaults to theme header or header_inc.php
 
 <div id="content">
 
-<h2>Example Article #1 - This is H2 Heading</h2>
+<h2>Welcome to NUMBE&#1071PLAY, an Interactive Way to Explore Numerology!</h2>
 
-<p>A page to use as a model for largely static web pages.</p>
+<p>Click on any of the links above to start your exploration!</p>
 <?php
 //benchmarkNote("Test from index file!");
 $config->benchNote = "Test From Index File!";
@@ -38,48 +38,10 @@ $config->benchNote = "Test From Index File!";
 //dumpDie($config);
 ?>
 
-<ul>
-<li>Aliquam hendrerit elit in leo tempor eu molestie orci molestie. Morbi in dolor dolor</li>
-<li>Class aptent taciti sociosqu ad litora torquent per conubia nostra</li>
-<li>Integer sed condimentum orci. Aenean id quam a ipsum convallis tincidunt vitae quis</li>
-</ul>
-<p>
-<?php
+<img src="images/numerology.jpg" class="num" alt="Picture of Numbers" style="width:300px;height:291px;">
 
-	// Name: Thomas Bonin
-	
-	$firstName = "Thomas";
-	$lastName = "Bonin";
-	$coffeeCompany = "Starbucks";
-	$coffeeCost = 3.5;
-	$coffeeTax = 1.15;
-	$coffeeTotal = $coffeeCost + $coffeeTax;
-	
-	echo($firstName . " " . $lastName . "<br />");
-	echo(" went to " . $coffeeCompany . " to buy a coffee for ". "$" . number_format($coffeeCost, 2) . " giving a total of " . "$" . number_format($coffeeTotal, 2) . "." . "<br />") ;
-	if($coffeeTotal>4){
-		echo("That's crazy! Stop the madness!");
-	}
-	else if($coffeeTotal>3){
-		echo("Really? That much?");
-	}
-	
-	else if($coffeeTotal>2){
-		echo("This will add up.");
-	}
-	
-	else if($coffeeTotal<=2){
-		echo("That is a reasonable price.");
-	}
-	
-	else {
-		echo("Thank you for your time.");
-	}
-		
-?>
-</p>
 <p>
-Proin at sapien arcu. Integer ut fermentum erat. Suspendisse potenti. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam odio quam, bibendum vitae lacinia ut, sodales ut turpis. Nullam dignissim urna vel risus condimentum in posuere nunc fermentum. 
+And thanks for visiting! We're glad you stopped by! 
 </p>
 
 <?php get_footer(); #defaults to theme header or footer_inc.php; ?>
